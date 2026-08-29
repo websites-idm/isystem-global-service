@@ -9,27 +9,22 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
-import { Route as ContactRouteImport } from './routes/contact'
-import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
-import { Route as MobileServicesIndexRouteImport } from './routes/mobile-services.index'
-import { Route as MobileBrandsIndexRouteImport } from './routes/mobile-brands.index'
-import { Route as LaptopServicesIndexRouteImport } from './routes/laptop-services.index'
+import { Route as AboutRouteImport } from './routes/about'
+import { Route as ContactRouteImport } from './routes/contact'
+import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as LaptopBrandsIndexRouteImport } from './routes/laptop-brands.index'
-import { Route as MobileServicesServiceRouteImport } from './routes/mobile-services.$service'
-import { Route as MobileBrandsBrandRouteImport } from './routes/mobile-brands.$brand'
-import { Route as LaptopServicesServiceRouteImport } from './routes/laptop-services.$service'
 import { Route as LaptopBrandsBrandRouteImport } from './routes/laptop-brands.$brand'
+import { Route as LaptopServicesIndexRouteImport } from './routes/laptop-services.index'
+import { Route as LaptopServicesServiceRouteImport } from './routes/laptop-services.$service'
+import { Route as MobileBrandsIndexRouteImport } from './routes/mobile-brands.index'
+import { Route as MobileBrandsBrandRouteImport } from './routes/mobile-brands.$brand'
+import { Route as MobileServicesIndexRouteImport } from './routes/mobile-services.index'
+import { Route as MobileServicesServiceRouteImport } from './routes/mobile-services.$service'
 
-const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
-  id: '/sitemap.xml',
-  path: '/sitemap.xml',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ContactRoute = ContactRouteImport.update({
-  id: '/contact',
-  path: '/contact',
+const IndexRoute = IndexRouteImport.update({
+  id: '/',
+  path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AboutRoute = AboutRouteImport.update({
@@ -37,24 +32,14 @@ const AboutRoute = AboutRouteImport.update({
   path: '/about',
   getParentRoute: () => rootRouteImport,
 } as any)
-const IndexRoute = IndexRouteImport.update({
-  id: '/',
-  path: '/',
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
   getParentRoute: () => rootRouteImport,
 } as any)
-const MobileServicesIndexRoute = MobileServicesIndexRouteImport.update({
-  id: '/mobile-services/',
-  path: '/mobile-services/',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const MobileBrandsIndexRoute = MobileBrandsIndexRouteImport.update({
-  id: '/mobile-brands/',
-  path: '/mobile-brands/',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const LaptopServicesIndexRoute = LaptopServicesIndexRouteImport.update({
-  id: '/laptop-services/',
-  path: '/laptop-services/',
+const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
+  id: '/sitemap.xml',
+  path: '/sitemap.xml',
   getParentRoute: () => rootRouteImport,
 } as any)
 const LaptopBrandsIndexRoute = LaptopBrandsIndexRouteImport.update({
@@ -62,14 +47,14 @@ const LaptopBrandsIndexRoute = LaptopBrandsIndexRouteImport.update({
   path: '/laptop-brands/',
   getParentRoute: () => rootRouteImport,
 } as any)
-const MobileServicesServiceRoute = MobileServicesServiceRouteImport.update({
-  id: '/mobile-services/$service',
-  path: '/mobile-services/$service',
+const LaptopBrandsBrandRoute = LaptopBrandsBrandRouteImport.update({
+  id: '/laptop-brands/$brand',
+  path: '/laptop-brands/$brand',
   getParentRoute: () => rootRouteImport,
 } as any)
-const MobileBrandsBrandRoute = MobileBrandsBrandRouteImport.update({
-  id: '/mobile-brands/$brand',
-  path: '/mobile-brands/$brand',
+const LaptopServicesIndexRoute = LaptopServicesIndexRouteImport.update({
+  id: '/laptop-services/',
+  path: '/laptop-services/',
   getParentRoute: () => rootRouteImport,
 } as any)
 const LaptopServicesServiceRoute = LaptopServicesServiceRouteImport.update({
@@ -77,9 +62,24 @@ const LaptopServicesServiceRoute = LaptopServicesServiceRouteImport.update({
   path: '/laptop-services/$service',
   getParentRoute: () => rootRouteImport,
 } as any)
-const LaptopBrandsBrandRoute = LaptopBrandsBrandRouteImport.update({
-  id: '/laptop-brands/$brand',
-  path: '/laptop-brands/$brand',
+const MobileBrandsIndexRoute = MobileBrandsIndexRouteImport.update({
+  id: '/mobile-brands/',
+  path: '/mobile-brands/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MobileBrandsBrandRoute = MobileBrandsBrandRouteImport.update({
+  id: '/mobile-brands/$brand',
+  path: '/mobile-brands/$brand',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MobileServicesIndexRoute = MobileServicesIndexRouteImport.update({
+  id: '/mobile-services/',
+  path: '/mobile-services/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MobileServicesServiceRoute = MobileServicesServiceRouteImport.update({
+  id: '/mobile-services/$service',
+  path: '/mobile-services/$service',
   getParentRoute: () => rootRouteImport,
 } as any)
 
@@ -188,18 +188,11 @@ export interface RootRouteChildren {
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/sitemap.xml': {
-      id: '/sitemap.xml'
-      path: '/sitemap.xml'
-      fullPath: '/sitemap.xml'
-      preLoaderRoute: typeof SitemapDotxmlRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/contact': {
-      id: '/contact'
-      path: '/contact'
-      fullPath: '/contact'
-      preLoaderRoute: typeof ContactRouteImport
+    '/': {
+      id: '/'
+      path: '/'
+      fullPath: '/'
+      preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/about': {
@@ -209,32 +202,18 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AboutRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/': {
-      id: '/'
-      path: '/'
-      fullPath: '/'
-      preLoaderRoute: typeof IndexRouteImport
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/mobile-services/': {
-      id: '/mobile-services/'
-      path: '/mobile-services'
-      fullPath: '/mobile-services/'
-      preLoaderRoute: typeof MobileServicesIndexRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/mobile-brands/': {
-      id: '/mobile-brands/'
-      path: '/mobile-brands'
-      fullPath: '/mobile-brands/'
-      preLoaderRoute: typeof MobileBrandsIndexRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/laptop-services/': {
-      id: '/laptop-services/'
-      path: '/laptop-services'
-      fullPath: '/laptop-services/'
-      preLoaderRoute: typeof LaptopServicesIndexRouteImport
+    '/sitemap.xml': {
+      id: '/sitemap.xml'
+      path: '/sitemap.xml'
+      fullPath: '/sitemap.xml'
+      preLoaderRoute: typeof SitemapDotxmlRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/laptop-brands/': {
@@ -244,18 +223,18 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LaptopBrandsIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/mobile-services/$service': {
-      id: '/mobile-services/$service'
-      path: '/mobile-services/$service'
-      fullPath: '/mobile-services/$service'
-      preLoaderRoute: typeof MobileServicesServiceRouteImport
+    '/laptop-brands/$brand': {
+      id: '/laptop-brands/$brand'
+      path: '/laptop-brands/$brand'
+      fullPath: '/laptop-brands/$brand'
+      preLoaderRoute: typeof LaptopBrandsBrandRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/mobile-brands/$brand': {
-      id: '/mobile-brands/$brand'
-      path: '/mobile-brands/$brand'
-      fullPath: '/mobile-brands/$brand'
-      preLoaderRoute: typeof MobileBrandsBrandRouteImport
+    '/laptop-services/': {
+      id: '/laptop-services/'
+      path: '/laptop-services'
+      fullPath: '/laptop-services/'
+      preLoaderRoute: typeof LaptopServicesIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/laptop-services/$service': {
@@ -265,11 +244,32 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LaptopServicesServiceRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/laptop-brands/$brand': {
-      id: '/laptop-brands/$brand'
-      path: '/laptop-brands/$brand'
-      fullPath: '/laptop-brands/$brand'
-      preLoaderRoute: typeof LaptopBrandsBrandRouteImport
+    '/mobile-brands/': {
+      id: '/mobile-brands/'
+      path: '/mobile-brands'
+      fullPath: '/mobile-brands/'
+      preLoaderRoute: typeof MobileBrandsIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/mobile-brands/$brand': {
+      id: '/mobile-brands/$brand'
+      path: '/mobile-brands/$brand'
+      fullPath: '/mobile-brands/$brand'
+      preLoaderRoute: typeof MobileBrandsBrandRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/mobile-services/': {
+      id: '/mobile-services/'
+      path: '/mobile-services'
+      fullPath: '/mobile-services/'
+      preLoaderRoute: typeof MobileServicesIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/mobile-services/$service': {
+      id: '/mobile-services/$service'
+      path: '/mobile-services/$service'
+      fullPath: '/mobile-services/$service'
+      preLoaderRoute: typeof MobileServicesServiceRouteImport
       parentRoute: typeof rootRouteImport
     }
   }
@@ -292,3 +292,13 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+  }
+}

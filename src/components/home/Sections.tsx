@@ -194,18 +194,33 @@ export function ServiceBento({ kind }: { kind: "mobile" | "laptop" }) {
               <Link
                 to={`${base}/$service`}
                 params={{ service: s.slug }}
-                className={`group h-full flex flex-col justify-between rounded-3xl p-6 md:p-7 border transition-all duration-300 hover:-translate-y-1 ${
+                className={`group h-full flex flex-col justify-between rounded-3xl p-6 md:p-7 border transition-all duration-300 hover:-translate-y-1 overflow-hidden relative ${
                   big
                     ? "gradient-navy text-white border-transparent shadow-elevated hover:shadow-glow"
                     : "bg-white border-[color:var(--border)] shadow-soft hover:shadow-elevated hover:border-[color:var(--blue-accent)]/30"
                 }`}
               >
-                <div className={`inline-flex h-11 w-11 items-center justify-center rounded-xl ${big ? "bg-white/10" : "bg-[color:var(--surface)]"}`}>
+                {/* Background image overlay */}
+                <div className="absolute right-0 top-0 w-32 h-32 md:w-48 md:h-48 opacity-10 group-hover:opacity-20 transition-opacity duration-300 pointer-events-none mix-blend-luminosity">
+                  <img src={`/services/${s.slug}.jpeg`} alt="" className="w-full h-full object-cover rounded-bl-full" onError={(e) => { e.currentTarget.style.display = 'none'; }} />
+                </div>
+                
+                <div className={`inline-flex h-11 w-11 items-center justify-center rounded-xl relative z-10 ${big ? "bg-white/10" : "bg-[color:var(--surface)]"}`}>
                   <Icon className={`h-5 w-5 ${big ? "text-white" : "text-[color:var(--navy-deep)]"}`} />
                 </div>
-                <div className="mt-8">
+                
+                <div className="mt-8 relative z-10">
                   <h3 className={`font-display font-semibold ${big ? "text-2xl md:text-3xl" : "text-base md:text-lg"} ${big ? "text-white" : "text-[color:var(--navy-deep)]"}`}>{s.name}</h3>
                   <p className={`mt-2 text-sm leading-relaxed ${big ? "text-white/70" : "text-[color:var(--ink-mute)]"}`}>{s.desc}</p>
+                  
+                  {/* For large cards, show a larger image */}
+                  {big && (
+                    <div className="mt-6 rounded-2xl overflow-hidden h-32 md:h-48 w-full relative">
+                      <img src={`/services/${s.slug}.jpeg`} alt={s.name} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" onError={(e) => { e.currentTarget.style.display = 'none'; }} />
+                      <div className="absolute inset-0 bg-gradient-to-t from-[color:var(--navy-deep)] to-transparent" />
+                    </div>
+                  )}
+
                   <span className={`mt-5 inline-flex items-center gap-1.5 text-xs font-semibold ${big ? "text-[color:var(--blue-glow)]" : "text-[color:var(--blue-accent)]"}`}>
                     Learn more <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" />
                   </span>
@@ -449,13 +464,15 @@ export function ContactSection() {
         <div className="lg:col-span-3 rounded-3xl overflow-hidden shadow-soft border border-[color:var(--border)] min-h-[380px]">
           <iframe
             title="iSystem location"
-            src="https://maps.google.com/maps?q=san+francisco&t=&z=13&ie=UTF8&iwloc=&output=embed"
+            src="https://maps.google.com/maps?q=Flat+No.102,+1st+Floor,+OnePlus+Servicing+Centers+-+Vanasthalipuram,+HYD,+Sree+Santhoshi+Mansion+Complex,+Hyderabad+-+Suryapet+Hwy,+beside+Sub-Registar+Office,+Sushma,+Vanasthalipuram,+Hyderabad,+Telangana+500070&t=&z=13&ie=UTF8&iwloc=&output=embed"
             className="w-full h-full min-h-[380px] border-0"
             loading="lazy"
           />
         </div>
         <div className="lg:col-span-2 space-y-4">
-          <InfoCard icon={MapPin} label="Studio" value={site.address} />
+          {site.locations?.map((loc, i) => (
+            <InfoCard key={i} icon={MapPin} label={loc.name} value={loc.address} href={loc.mapUrl} />
+          ))}
           <InfoCard icon={Phone} label="Call" value={site.phone} href={site.phoneHref} />
           <InfoCard icon={Mail} label="Email" value={site.email} href={`mailto:${site.email}`} />
           <InfoCard icon={Clock3} label="Hours" value={site.hours} />

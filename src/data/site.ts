@@ -5,7 +5,26 @@ export const site = {
   phoneHref: "tel:+18005550142",
   whatsapp: "https://wa.me/18005550142",
   email: "care@isystem.repair",
-  address: "221 Innovation Avenue, Suite 400, San Francisco, CA 94107",
+  address: "Flat No.102, 1st Floor, Sree Santhoshi Mansion Complex, Sushma, Vanasthalipuram, Hyderabad, Telangana 500070",
+  locations: [
+    {
+      name: "Vanasthalipuram Branch",
+      address: "Flat No.102, 1st Floor, Sree Santhoshi Mansion Complex, Sushma, Vanasthalipuram, Hyderabad, Telangana 500070",
+      mapUrl: "https://maps.app.goo.gl/QRkJBGnXrhKp9wiY6?g_st=ic"
+    },
+    {
+      name: "L. B. Nagar Branch 1",
+      address: "First floor 3-8-3, opposite Indian Petrol Pump, High Way Colony, Chandrapuri Colony, L. B. Nagar, Hyderabad, Telangana 500074",
+    },
+    {
+      name: "L. B. Nagar Branch 2",
+      address: "H.No. 3-8-2, First Floor Old Check Post, Bairamal Guda Bypass Rd, L. B. Nagar, Telangana 500074",
+    },
+    {
+      name: "L. B. Nagar Branch 3",
+      address: "Dhanunjaya Complex, Chintalkunta Rd, High Way Colony, Chandrapuri Colony, L. B. Nagar, Hyderabad, Telangana 500074",
+    }
+  ],
   hours: "Mon–Sat · 9:00 – 20:00",
   social: {
     instagram: "https://instagram.com/isystem",
