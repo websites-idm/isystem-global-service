@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { ArrowRight, Phone, ShieldCheck, Sparkles } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import heroImg from "@/assets/hero-devices.jpg";
+import { site } from "@/data/site";
 
 export function Hero() {
   const ref = useRef<HTMLDivElement>(null);
@@ -68,7 +69,7 @@ export function Hero() {
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
             </Link>
             <a
-              href="tel:+18005550142"
+              href={site.phoneHref}
               className="inline-flex items-center gap-2 rounded-full glass text-white px-6 py-3.5 text-sm font-semibold hover:bg-white/15 transition"
             >
               <Phone className="h-4 w-4" /> Call Now
