@@ -69,18 +69,26 @@ export function BookRepair() {
         </div>
 
         <form
-          onSubmit={(e) => e.preventDefault()}
+          onSubmit={(e) => {
+            e.preventDefault();
+            const fd = new FormData(e.currentTarget);
+            const data = Object.fromEntries(fd.entries());
+            const text = `*New Repair Booking*\n\n*Name:* ${data.name}\n*Phone:* ${data.phone}\n*Device:* ${data.device}\n*Brand:* ${data.brand}\n*Service:* ${data.service}\n*Message:* ${data.message}`;
+            const url = `https://wa.me/919991116016?text=${encodeURIComponent(text)}`;
+            window.open(url, "_blank");
+          }}
           className="lg:col-span-7 glass rounded-3xl p-8 md:p-10 shadow-elevated"
         >
           <div className="grid md:grid-cols-2 gap-4">
-            <Field label="Full Name" placeholder="John Appleseed" />
-            <Field label="Phone Number" placeholder="+1 555 000 1234" />
-            <Select label="Device Type" options={["Smartphone", "Laptop", "Tablet", "Smartwatch"]} />
-            <Select label="Brand" options={[...mobileBrands, ...laptopBrands].map((b) => b.name)} />
-            <Select className="md:col-span-2" label="Repair Service" options={[...mobileServices, ...laptopServices].map((s) => s.name)} />
+            <Field label="Full Name" name="name" placeholder="John Appleseed" required />
+            <Field label="Phone Number" name="phone" placeholder="+91 9991116016" required />
+            <Select label="Device Type" name="device" options={["Smartphone", "Laptop", "Tablet", "Smartwatch"]} required />
+            <Select label="Brand" name="brand" options={[...mobileBrands, ...laptopBrands].map((b) => b.name)} required />
+            <Select className="md:col-span-2" name="service" label="Repair Service" options={[...mobileServices, ...laptopServices].map((s) => s.name)} required />
             <div className="md:col-span-2">
               <label className="block text-xs font-medium uppercase tracking-widest text-white/60 mb-2">Message</label>
               <textarea
+                name="message"
                 rows={4}
                 placeholder="Describe the issue in a few words…"
                 className="w-full rounded-2xl bg-white/5 border border-white/15 px-4 py-3 text-sm text-white placeholder:text-white/40 focus:outline-none focus:border-[color:var(--blue-glow)] transition"
@@ -99,23 +107,25 @@ export function BookRepair() {
   );
 }
 
-function Field({ label, placeholder }: { label: string; placeholder: string }) {
+function Field({ label, placeholder, name, required }: { label: string; placeholder: string; name: string; required?: boolean }) {
   return (
     <div>
       <label className="block text-xs font-medium uppercase tracking-widest text-white/60 mb-2">{label}</label>
       <input
         type="text"
+        name={name}
+        required={required}
         placeholder={placeholder}
         className="w-full rounded-2xl bg-white/5 border border-white/15 px-4 py-3 text-sm text-white placeholder:text-white/40 focus:outline-none focus:border-[color:var(--blue-glow)] transition"
       />
     </div>
   );
 }
-function Select({ label, options, className }: { label: string; options: string[]; className?: string }) {
+function Select({ label, options, className, name, required }: { label: string; options: string[]; className?: string; name: string; required?: boolean }) {
   return (
     <div className={className}>
       <label className="block text-xs font-medium uppercase tracking-widest text-white/60 mb-2">{label}</label>
-      <select className="w-full rounded-2xl bg-white/5 border border-white/15 px-4 py-3 text-sm text-white focus:outline-none focus:border-[color:var(--blue-glow)] transition appearance-none">
+      <select name={name} required={required} className="w-full rounded-2xl bg-white/5 border border-white/15 px-4 py-3 text-sm text-white focus:outline-none focus:border-[color:var(--blue-glow)] transition appearance-none">
         <option value="" className="bg-[color:var(--navy)]">Select…</option>
         {options.map((o) => <option key={o} value={o} className="bg-[color:var(--navy)]">{o}</option>)}
       </select>
