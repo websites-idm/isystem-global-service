@@ -1,30 +1,11 @@
 export const site = {
   name: "iSystem",
   tagline: "Precision Repair. Certified Care.",
-  phone: "+1 (800) 555-0142",
-  phoneHref: "tel:+18005550142",
-  whatsapp: "https://wa.me/18005550142",
+  phone: "+91 9991116016 / 6303767517 / 7207207046",
+  phoneHref: "tel:+919991116016",
+  whatsapp: "https://wa.me/919991116016",
   email: "care@isystem.repair",
-  address: "Flat No.102, 1st Floor, Sree Santhoshi Mansion Complex, Sushma, Vanasthalipuram, Hyderabad, Telangana 500070",
-  locations: [
-    {
-      name: "Vanasthalipuram Branch",
-      address: "Flat No.102, 1st Floor, Sree Santhoshi Mansion Complex, Sushma, Vanasthalipuram, Hyderabad, Telangana 500070",
-      mapUrl: "https://maps.app.goo.gl/QRkJBGnXrhKp9wiY6?g_st=ic"
-    },
-    {
-      name: "L. B. Nagar Branch 1",
-      address: "First floor 3-8-3, opposite Indian Petrol Pump, High Way Colony, Chandrapuri Colony, L. B. Nagar, Hyderabad, Telangana 500074",
-    },
-    {
-      name: "L. B. Nagar Branch 2",
-      address: "H.No. 3-8-2, First Floor Old Check Post, Bairamal Guda Bypass Rd, L. B. Nagar, Telangana 500074",
-    },
-    {
-      name: "L. B. Nagar Branch 3",
-      address: "Dhanunjaya Complex, Chintalkunta Rd, High Way Colony, Chandrapuri Colony, L. B. Nagar, Hyderabad, Telangana 500074",
-    }
-  ],
+  address: "Shop No.6, Ground Floor, Welcome Court Apartment, opp. Railway Degree College, Vijayapuri Colony, Tarnaka, Secunderabad, Telangana 500017",
   hours: "Mon–Sat · 9:00 – 20:00",
   social: {
     instagram: "https://instagram.com/isystem",

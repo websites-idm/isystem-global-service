@@ -464,15 +464,13 @@ export function ContactSection() {
         <div className="lg:col-span-3 rounded-3xl overflow-hidden shadow-soft border border-[color:var(--border)] min-h-[380px]">
           <iframe
             title="iSystem location"
-            src="https://maps.google.com/maps?q=Flat+No.102,+1st+Floor,+OnePlus+Servicing+Centers+-+Vanasthalipuram,+HYD,+Sree+Santhoshi+Mansion+Complex,+Hyderabad+-+Suryapet+Hwy,+beside+Sub-Registar+Office,+Sushma,+Vanasthalipuram,+Hyderabad,+Telangana+500070&t=&z=13&ie=UTF8&iwloc=&output=embed"
+            src="https://maps.google.com/maps?q=CGHG+RPC+Welcome+Court+Apartments,+Inner+Ring+Rd,+Vijayapuri+Colony,+Mettuguda,+Secunderabad,+Telangana+500017&t=&z=13&ie=UTF8&iwloc=&output=embed"
             className="w-full h-full min-h-[380px] border-0"
             loading="lazy"
           />
         </div>
         <div className="lg:col-span-2 space-y-4">
-          {site.locations?.map((loc, i) => (
-            <InfoCard key={i} icon={MapPin} label={loc.name} value={loc.address} href={loc.mapUrl} />
-          ))}
+          <InfoCard icon={MapPin} label="Studio" value={site.address} href="https://maps.app.goo.gl/i326YTgRBKEz5vmG8?g_st=iwb" />
           <InfoCard icon={Phone} label="Call" value={site.phone} href={site.phoneHref} />
           <InfoCard icon={Mail} label="Email" value={site.email} href={`mailto:${site.email}`} />
           <InfoCard icon={Clock3} label="Hours" value={site.hours} />
