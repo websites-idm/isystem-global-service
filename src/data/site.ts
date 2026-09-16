@@ -4,7 +4,7 @@ export const site = {
   phone: "+91 9991116016 / 6303767517 / 7207207046",
   phoneHref: "tel:+919991116016",
   whatsapp: "https://wa.me/919991116016",
-  email: "care@isystem.repair",
+  email: "Isystemapplecare@gmail.com",
   address: "Shop No.6, Ground Floor, Welcome Court Apartment, opp. Railway Degree College, Vijayapuri Colony, Tarnaka, Secunderabad, Telangana 500017",
   hours: "Mon–Sat · 9:00 – 20:00",
   social: {
