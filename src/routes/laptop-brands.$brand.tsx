@@ -12,7 +12,7 @@ export const Route = createFileRoute("/laptop-brands/$brand")({
     const name = loaderData?.brand.name ?? "Laptop Brand";
     return {
       meta: [
-        { title: `${name} Repair Service — iSystem` },
+        { title: `${name} Service Center — iSystem` },
         { name: "description", content: `Certified ${name} laptop repair with genuine parts, transparent pricing and a 12-month warranty.` },
         { property: "og:title", content: `${name} Repair — iSystem` },
         { property: "og:description", content: `Expert ${name} laptop repair by certified technicians.` },
