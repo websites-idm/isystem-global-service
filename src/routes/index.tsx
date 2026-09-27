@@ -9,7 +9,7 @@ export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
       { title: "iSystem — Certified Mobile & Laptop Repair" },
-      { name: "description", content: "Professional mobile and laptop repair with genuine parts, certified technicians and a 12-month warranty. Same-day service, transparent pricing." },
+      { name: "description", content: "Professional mobile and laptop repair with quality parts, trained technicians and a 12-month warranty. Same-day service, transparent pricing." },
       { property: "og:title", content: "iSystem — Certified Mobile & Laptop Repair" },
       { property: "og:description", content: "Fast, reliable and certified repair for smartphones, laptops and tablets." },
       { property: "og:type", content: "website" },

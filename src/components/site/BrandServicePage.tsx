@@ -21,7 +21,7 @@ export function BrandDetailPage({
       <PageHero
         eyebrow={label}
         title={`${brandName} ${kind === "mobile" ? "Repair" : "Service"} — engineered to factory standards.`}
-        subtitle={`Certified ${brandName} technicians, genuine parts and a 12-month warranty on every ${kind === "mobile" ? "smartphone" : "laptop"} we repair.`}
+        subtitle={`Experienced ${brandName} technicians, quality parts and a 12-month warranty on every ${kind === "mobile" ? "smartphone" : "laptop"} we repair.`}
       />
 
       <section className="py-24 bg-white">
@@ -75,7 +75,7 @@ export function ServiceDetailPage({
   ];
   const procedure = [
     "Booked-in and photographed on arrival",
-    "Diagnosed by a certified technician",
+    "Diagnosed by a trained technician",
     "Quoted transparently for approval",
     "Repaired with genuine, tested components",
     "20-point verification before handover",

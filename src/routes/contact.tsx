@@ -6,7 +6,7 @@ export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
       { title: "Contact iSystem — Book a Certified Repair" },
-      { name: "description", content: "Book a mobile or laptop repair, request a quote, or reach our specialists by call, WhatsApp or email." },
+      { name: "description", content: "Book a mobile or laptop repair, request a quote, or reach our specialists by call or WhatsApp." },
       { property: "og:title", content: "Contact iSystem" },
       { property: "og:description", content: "Book a repair or reach a specialist in seconds." },
       { property: "og:type", content: "website" },

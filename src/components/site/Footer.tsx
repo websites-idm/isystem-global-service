@@ -24,18 +24,20 @@ export function Footer() {
           <FooterCol title="Laptop Brands" links={laptopBrands.map((b) => [b.name, `/laptop-brands/${b.slug}`])} />
         </div>
 
-        <div className="mt-16 grid md:grid-cols-3 gap-6 text-sm">
+        <div className="mt-16 grid md:grid-cols-2 gap-6 text-sm">
           <div className="flex items-start gap-3"><MapPin className="h-4 w-4 mt-0.5 text-[color:var(--blue-glow)]" />{site.address}</div>
           <div className="flex items-start gap-3"><Phone className="h-4 w-4 mt-0.5 text-[color:var(--blue-glow)]" />{site.phone}</div>
-          <div className="flex items-start gap-3"><Mail className="h-4 w-4 mt-0.5 text-[color:var(--blue-glow)]" />{site.email}</div>
         </div>
 
-        <div className="mt-12 pt-8 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-white/60">
-          <p>© {new Date().getFullYear()} iSystem. Certified device service, worldwide.</p>
-          <div className="flex items-center gap-4">
-            <a href={site.social.instagram} aria-label="Instagram" className="hover:text-white"><Instagram className="h-4 w-4" /></a>
-            <a href={site.social.facebook} aria-label="Facebook" className="hover:text-white"><Facebook className="h-4 w-4" /></a>
-            <a href={site.social.linkedin} aria-label="LinkedIn" className="hover:text-white"><Linkedin className="h-4 w-4" /></a>
+        <div className="mt-12 pt-8 border-t border-white/10 flex flex-col gap-4 text-xs text-white/60">
+          <p className="max-w-4xl">iSystem is an independent repair provider and is not affiliated with, sponsored by, or authorized by Apple Inc. or any other manufacturer named on this site. All product names, logos and brands are the property of their respective owners.</p>
+          <div className="flex flex-col md:flex-row items-center justify-between gap-4">
+            <p>© {new Date().getFullYear()} iSystem. All rights reserved.</p>
+            <div className="flex items-center gap-4">
+              <a href={site.social.instagram} aria-label="Instagram" className="hover:text-white"><Instagram className="h-4 w-4" /></a>
+              <a href={site.social.facebook} aria-label="Facebook" className="hover:text-white"><Facebook className="h-4 w-4" /></a>
+              <a href={site.social.linkedin} aria-label="LinkedIn" className="hover:text-white"><Linkedin className="h-4 w-4" /></a>
+            </div>
           </div>
         </div>
       </div>

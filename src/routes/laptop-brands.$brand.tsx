@@ -10,12 +10,23 @@ export const Route = createFileRoute("/laptop-brands/$brand")({
   },
   head: ({ loaderData }) => {
     const name = loaderData?.brand.name ?? "Laptop Brand";
+    if (name.toLowerCase() === "apple") {
+      return {
+        meta: [
+          { title: "Apple Device Repair — iSystem" },
+          { name: "description", content: "Independent Apple device repair with quality parts, transparent pricing and a 12-month warranty. Not affiliated with or authorized by Apple Inc." },
+          { property: "og:title", content: "Apple Repair — iSystem" },
+          { property: "og:description", content: "Independent Apple device repair with quality parts, transparent pricing and a 12-month warranty. Not affiliated with or authorized by Apple Inc." },
+          { property: "og:type", content: "website" },
+        ],
+      };
+    }
     return {
       meta: [
         { title: `${name} Service Center — iSystem` },
-        { name: "description", content: `Certified ${name} laptop repair with genuine parts, transparent pricing and a 12-month warranty.` },
+        { name: "description", content: `Professional ${name} laptop repair with genuine parts, transparent pricing and a 12-month warranty.` },
         { property: "og:title", content: `${name} Repair — iSystem` },
-        { property: "og:description", content: `Expert ${name} laptop repair by certified technicians.` },
+        { property: "og:description", content: `Experienced ${name} laptop repair by trained technicians.` },
         { property: "og:type", content: "website" },
       ],
     };

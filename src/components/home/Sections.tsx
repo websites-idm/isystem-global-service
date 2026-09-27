@@ -11,7 +11,7 @@ import { mobileBrands, laptopBrands, mobileServices, laptopServices, site } from
 
 /* ---------- Section 2: Trust ---------- */
 const trustItems = [
-  { icon: Award, label: "Certified Technicians", desc: "Brand-trained, background-checked engineers." },
+  { icon: Award, label: "Trained Technicians", desc: "Expert, background-checked engineers." },
   { icon: ShieldCheck, label: "Genuine Parts", desc: "OEM & Grade-A components, always." },
   { icon: Wrench, label: "Warranty Included", desc: "12-month coverage on parts and labor." },
   { icon: Clock3, label: "Fast Turnaround", desc: "Most repairs completed same day." },
@@ -247,7 +247,7 @@ export function ServiceBento({ kind }: { kind: "mobile" | "laptop" }) {
 /* ---------- Section 7: Process Timeline ---------- */
 const steps = [
   { title: "Book", desc: "Reserve a slot in under two minutes." },
-  { title: "Inspection", desc: "Free diagnostic by a certified engineer." },
+  { title: "Inspection", desc: "Free diagnostic by a trained engineer." },
   { title: "Diagnosis", desc: "A clear, itemised report — no jargon." },
   { title: "Approval", desc: "Transparent quote before any work begins." },
   { title: "Repair", desc: "Genuine parts, precision tooling, ESD-safe bench." },
@@ -288,7 +288,7 @@ export function ProcessTimeline() {
 
 /* ---------- Section 8: Why Choose ---------- */
 const whyItems = [
-  { title: "Certified Engineers", desc: "Every technician holds brand-issued certifications and passes our internal apprenticeship." },
+  { title: "Trained Engineers", desc: "Every technician is trained through hands-on apprenticeship and ongoing internal certification." },
   { title: "Latest Equipment", desc: "Microscope soldering stations, ultrasonic cleaners, and calibrated diagnostics." },
   { title: "Original Components", desc: "OEM-grade screens, batteries and boards — sourced through verified supply." },
   { title: "Transparent Pricing", desc: "Fixed quotes before we start. No last-minute additions, no surprises." },
@@ -427,7 +427,7 @@ export function Testimonials() {
 
 /* ---------- Section 11: FAQ ---------- */
 const faqs = [
-  { q: "Do you use genuine parts?", a: "Yes — we use OEM parts wherever available and Grade-A certified components otherwise, always disclosed upfront." },
+  { q: "Do you use genuine parts?", a: "Yes — we use high-quality OEM-grade and Grade-A certified components, always disclosed upfront." },
   { q: "How long does a repair take?", a: "Most repairs are completed the same day. Complex board-level work may take 2–4 business days; we always share an ETA at approval." },
   { q: "Is my data safe?", a: "Absolutely. Devices are handled under NDA-bound protocols and we never require your passcode unless functional testing demands it." },
   { q: "What warranty do you offer?", a: "Every repair carries a 12-month warranty covering parts and labor. Battery replacements include a capacity guarantee." },
@@ -482,7 +482,6 @@ export function ContactSection() {
         <div className="lg:col-span-2 space-y-4">
           <InfoCard icon={MapPin} label="Studio" value={site.address} href="https://maps.app.goo.gl/i326YTgRBKEz5vmG8?g_st=iwb" />
           <InfoCard icon={Phone} label="Call" value={site.phone} href={site.phoneHref} />
-          <InfoCard icon={Mail} label="Email" value={site.email} href={`mailto:${site.email}`} />
           <InfoCard icon={Clock3} label="Hours" value={site.hours} />
           <a href={site.whatsapp} className="flex items-center justify-between rounded-2xl gradient-blue text-white p-5 shadow-glow hover:shadow-elevated transition">
             <div>
